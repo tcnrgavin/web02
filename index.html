@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Cake 甜點工坊</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Microsoft JhengHei",sans-serif;
+}
+
+body{
+    background:#fffaf7;
+    color:#333;
+}
+
+header{
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#d2691e;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+.cart{
+    background:#ff7f50;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+}
+
+/* Banner */
+
+.hero{
+    height:80vh;
+    background:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=80') center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    background:rgba(255,255,255,.85);
+    padding:40px;
+    border-radius:15px;
+}
+
+.hero h1{
+    font-size:52px;
+    color:#c45c00;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.btn{
+    background:#ff7f50;
+    color:white;
+    padding:12px 30px;
+    text-decoration:none;
+    border-radius:30px;
+    display:inline-block;
+}
+
+/* Section */
+
+section{
+    padding:70px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-size:36px;
+    color:#c45c00;
+}
+
+/* Product */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#e74c3c;
+    font-size:24px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.buy-btn{
+    width:100%;
+    border:none;
+    background:#ff7f50;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* About */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:15px;
+}
+
+.about-text h2{
+    color:#c45c00;
+    margin-bottom:20px;
+}
+
+/* Contact */
+
+.contact{
+    background:white;
+    border-radius:15px;
+    padding:40px;
+}
+
+form{
+    display:grid;
+    gap:15px;
+}
+
+input,textarea{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    border:none;
+    background:#ff7f50;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:36px;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+.menu{
+    display:none;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">🍰 Sweet Cake</div>
+
+<div class="menu">
+<a href="#">首頁</a>
+<a href="#products">商品</a>
+<a href="#about">品牌故事</a>
+<a href="#contact">聯絡我們</a>
+</div>
+
+<div class="cart">
+🛒 購物車：<span id="cartCount">0</span>
+</div>
+
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>幸福從甜點開始</h1>
+<p>每日新鮮手作蛋糕，為生活增添甜蜜滋味</p>
+<a href="#products" class="btn">立即選購</a>
+</div>
+</section>
+
+<section id="products">
+<div class="container">
+
+<div class="title">
+<h2>人氣甜點</h2>
+</div>
+
+<div class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>草莓鮮奶油蛋糕</h3>
+<p>新鮮草莓搭配香濃鮮奶油</p>
+<div class="price">NT$680</div>
+<button class="buy-btn" onclick="addCart()">加入購物車</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>巧克力熔岩蛋糕</h3>
+<p>濃郁巧克力內餡入口即化</p>
+<div class="price">NT$520</div>
+<button class="buy-btn" onclick="addCart()">加入購物車</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>水果千層蛋糕</h3>
+<p>層層堆疊的幸福口感</p>
+<div class="price">NT$580</div>
+<button class="buy-btn" onclick="addCart()">加入購物車</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>法式馬卡龍禮盒</h3>
+<p>繽紛色彩與細膩口感</p>
+<div class="price">NT$450</div>
+<button class="buy-btn" onclick="addCart()">加入購物車</button>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1200&q=80">
+
+<div class="about-text">
+<h2>品牌故事</h2>
+
+<p>
+Sweet Cake 成立於2020年，
+堅持使用天然食材與手工製作，
+希望每一塊蛋糕都能帶來幸福感。
+</p>
+
+<br>
+
+<p>
+從生日蛋糕到下午茶甜點，
+我們相信甜點不只是食物，
+更是傳遞祝福與分享快樂的媒介。
+</p>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="title">
+<h2>聯絡我們</h2>
+</div>
+
+<div class="contact">
+
+<form onsubmit="sendMessage(event)">
+<input type="text" placeholder="您的姓名" required>
+
+<input type="email" placeholder="電子郵件" required>
+
+<textarea rows="5" placeholder="留言內容"></textarea>
+
+<button type="submit">送出訊息</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Sweet Cake 甜點工坊 | 手作蛋糕專賣店</p>
+</footer>
+
+<script>
+
+let cart=0;
+
+function addCart(){
+    cart++;
+    document.getElementById("cartCount").innerText=cart;
+}
+
+function sendMessage(e){
+    e.preventDefault();
+    alert("感謝您的留言，我們將盡快與您聯繫！");
+}
+
+</script>
+
+</body>
+</html>
